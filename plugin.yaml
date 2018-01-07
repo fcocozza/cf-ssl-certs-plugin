@@ -1,0 +1,37 @@
+image: paulczar/omgwtfssl
+version: 0.1.0
+description: Codefresh plugin for creation of self signed SSL certificates
+keywords:
+  - ssl
+  - certificates
+home: https://github.com/fcocozza/cf-ssl-certs-plugin
+sources:
+  - https://github.com/fcocozza/cf-ssl-certs-plugin
+
+envs:
+  - name: SSL_SUBJECT
+    description: (REQUIRED) SSL Subject
+  - name: CA_KEY
+    description: CA Key file, default ca-key.pem
+  - name: CA_CERT
+    description: CA Certificate file, default ca.pem
+  - name: CA_SUBJECT
+    description: CA Subject, default test-ca
+  - name: CA_EXPIRE
+    description: CA Expiry, default 60 days
+  - name: SSL_CONFIG
+    description: SSL Config, default openssl.cnf [1]
+  - name: SSL_KEY
+    description: SSL Key file, default key.pem
+  - name: SSL_CSR
+    description: SSL Cert Request file, default key.csr
+  - name: SSL_CERT
+    description: SSL Cert file, default cert.pem
+  - name: SSL_SIZE
+    description: SSL Cert size, default 2048 bits
+  - name: SSL_EXPIRE
+    description: SSL Cert expiry, default 60 days
+  - name: SSL_DNS
+    description: comma seperated list of alternative hostnames, no default
+  - name: SSL_IP
+    description: comma seperate list of alternative IPs, no default
