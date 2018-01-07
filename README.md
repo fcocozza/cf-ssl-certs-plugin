@@ -6,11 +6,9 @@ Codefresh plugin for creation of self signed SSL certificates
 Set required and optional environment variable and add the following step to your Codefresh pipeline:
 
 ```yaml
----
 version: '1.0'
 
 steps:
-
   ...
  
   GenerateSSLCertificate:
@@ -26,19 +24,9 @@ steps:
       - SSL_SUBJECT=${{SSL_SUBJECT}}    
 
   ...
-
 ```
 
 ## Environment Variables
-
-- **required** `KUBE_CONTEXT` - Kubernetes context to use
-- `FILE` - Docker Compose file to deploy (default `docker-compose.yaml` file)
-- `NAMESPACE` - target Kubernetes namespace (default `default` namespace)
-- `REPLICAS` - specify the number of replicas generated (default `1`)
-- `VOLUMES` - volumes to be generated (`persistentVolumeClaim`|`emptyDir`) (default `persistentVolumeClaim`)
-- `DRY_RUN` - do a "dry run" (print out) deployment (do not install anything, useful for Debug)
-- `DEBUG` - print verbose install output
-
 * **required** `SSL_SUBJECT` SSL Subject
 * `CA_KEY` CA Key file, default `ca-key.pem` __[1]__
 * `CA_CERT` CA Certificate file, default `ca.pem` __[1]__
@@ -58,11 +46,9 @@ __[2] If `SSL_DNS` or `SSL_IP` is set will add `SSL_SUBJECT` to alternative host
 
 ## (example) How to use the generated certificate in another step of the build
 ```yaml
----
 version: '1.0'
 
 steps:
-
   ...
 
   UseSSLCertificate:
